@@ -17,14 +17,17 @@ void setup() {
 
 void loop() {
   // turn leds on
-  for (int idx = 0; idx <= 5; idx++) {
-    digitalWrite(LEDS[idx], HIGH);
-  }
+  myWrite(HIGH);
   delay(1000);            
   
   // turn leds off 
-  for (int idx = 0; idx <= 5; idx++) {
-    digitalWrite(LEDS[idx], LOW);
-  }
+  myWrite(LOW);
   delay(1000);                
 }
+
+void myWrite(int value) {
+  for (int idx = 0; idx <= 5; idx++) {
+    digitalWrite(LEDS[idx], value);
+  }
+}
+
