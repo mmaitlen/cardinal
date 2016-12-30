@@ -8,6 +8,15 @@ const int LED6 = 8;
 
 const int LEDS[] = {LED1, LED2, LED3, LED4, LED5, LED6};
 
+const int IDX0 = 0;
+const int IDX1 = 1;
+const int IDX2 = 2;
+const int IDX3 = 3;
+const int IDX4 = 4;
+const int IDX5 = 5;
+
+const int LAST_IDX = sizeof(LEDS);
+
 void setup() {
   // setup pins as outputs for leds
   for (int idx = 0; idx <= 5; idx++) {
@@ -17,10 +26,10 @@ void setup() {
 
 void loop() {
   // turn leds on
-  myWrite(0,2, HIGH);
+  myWrite(IDX0, IDX2, HIGH);
   delay(1000);            
 
-  myWrite(3, 4, HIGH);
+  myWrite(IDX3, IDX4, HIGH);
   delay(1000);            
 
   // turn leds off 
@@ -29,9 +38,7 @@ void loop() {
 }
 
 void myWrite(int value) {
-  for (int idx = 0; idx <= 5; idx++) {
-    digitalWrite(LEDS[idx], value);
-  }
+  myWrite(0, LAST_IDX, value);
 }
 
 void myWrite(int firstIdx, int lastIdx, int value) {
