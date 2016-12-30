@@ -17,9 +17,12 @@ void setup() {
 
 void loop() {
   // turn leds on
-  myWrite(HIGH);
+  myWrite(0,2, HIGH);
   delay(1000);            
-  
+
+  myWrite(3, 4, HIGH);
+  delay(1000);            
+
   // turn leds off 
   myWrite(LOW);
   delay(1000);                
@@ -27,6 +30,12 @@ void loop() {
 
 void myWrite(int value) {
   for (int idx = 0; idx <= 5; idx++) {
+    digitalWrite(LEDS[idx], value);
+  }
+}
+
+void myWrite(int firstIdx, int lastIdx, int value) {
+  for (int idx = firstIdx; idx <= lastIdx; idx++) {
     digitalWrite(LEDS[idx], value);
   }
 }
